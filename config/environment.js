@@ -16,10 +16,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      PUSHER: {
+        key: '6ad536358dc723d8f3e0'
+      },
     }
+
   };
 
   if (environment === 'development') {
+    ENV.APP.SERVER_URL = 'http://localhost:4567';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -42,6 +47,17 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV['contentSecurityPolicy'] = {
+  'default-src': "'none'",
+  'script-src': "'self' https://stats.pusher.com/",
+  'connect-src': "'self' wss://ws.pusherapp.com/ http://localhost:4567/",
+  'img-src': "'self'",
+  'style-src': "'self' fonts.googleapis.com http://d3dhju7igb20wy.cloudfront.net/ 'unsafe-inline'",
+  'font-src': "'self' fonts.gstatic.com http://d3dhju7igb20wy.cloudfront.net/",
+  'media-src': "'self'",
+  }
+
 
   return ENV;
 };

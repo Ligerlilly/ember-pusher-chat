@@ -1,0 +1,7 @@
+{{#if nameIsSet}}
+  <h3>Welcome<b>{{log userName}}</b></h3>
+  {{#chat-messages}}{{/chat-messages}}
+{{else}}
+  {{#chat-username}}{{/chat-username}}
+{{/if}}
+{{yield}}

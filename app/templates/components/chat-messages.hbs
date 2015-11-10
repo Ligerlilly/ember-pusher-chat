@@ -1,0 +1,10 @@
+
+{{#each messages as |message|}}
+  {{#chat-message message=message}}{{/chat-message}}
+{{/each}}
+
+<div>
+  {{textarea value=newMessage class='input-message col-xs-9' id='message-input'}}
+  <button {{action 'newMessage'}}>Send</button>
+</div>
+{{yield}}
